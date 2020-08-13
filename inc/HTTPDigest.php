@@ -180,6 +180,7 @@ class HTTPDigest
      * @return str
      */
     function getNonce() {
+        date_default_timezone_set("America/Detroit");
         $time = ceil(time() / $this->nonceLife) * $this->nonceLife;
         return md5(date('Y-m-d H:i', $time).':'.$_SERVER['REMOTE_ADDR'].':'.$this->privateKey);
     }
